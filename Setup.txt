@@ -1,0 +1,29 @@
+1. Create new project
+2. Add a new C++ main file
+3. Project property, C/C++, general, additional include folder. add glew/include. then add glfw/include.
+4. Linker, general, additional library directories. add glew/lib/release/win32. add glfw/lib-vc2015.
+5. Linker, input, additional dependencies. add opengl32.lib. add glew32s.lib. add glfw3.lib.
+6. Glew/bin/release/win32/glew32.dll, copy it to where main.cpp is.
+
+setup soil:
+1. C/C++, General-additional include directories. add src folder.
+2. Compile and get the soil.lib file, add the file location to Linker, general, additional library directories.
+3. Linker, input, additional dependencies, add soil.lib.
+#include <soil.h>
+
+setup glm:
+add glm main folder into C++ include path.
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+
+setup assimp:
+1. download assimp, boost, cmake.
+2. make assimp as a project first, then build it to generate library, when build it, add whole boost folder as additional dependencies, also Not Using Precompiled Headers.
+3. C/C++ additional include directories, add .../assimp-3.3.1/include
+4. Linker, additional library directories, add lib/Debug
+4. Linker, additional dependencies, add assimp-vc140-mt.lib
+5. paste assimp-vc140-mt.dll under bin/debug to your project folder.
+
+
+CD2AA-QZBHD-C3KJL-E9HRV-Q797C    for camtasia keys.
