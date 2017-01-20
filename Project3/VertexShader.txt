@@ -1,0 +1,36 @@
+#version 330 core
+layout (location = 0) in vec3 position;
+layout (location = 1) in vec3 normal;
+layout (location = 2) in vec2 texCoords;
+
+out vec2 TexCoords;
+
+uniform mat4 floor;
+uniform mat4 sphere1;
+uniform mat4 sphere2;
+uniform mat4 sphere3;
+uniform mat4 sphere4;
+uniform mat4 sphere5;
+uniform mat4 sphere6;
+uniform mat4 sphere7;
+uniform mat4 sphere8;
+uniform mat4 sphere9;
+uniform mat4 cameraMatrix;
+uniform int objectID=1;
+
+void main()
+{
+	if(objectID==0){gl_Position = cameraMatrix *floor* vec4(position, 1.0f);} //floor and wall
+	else if(objectID==1){gl_Position = cameraMatrix * sphere1 * vec4(position, 1.0f);} //sphere1
+	else if(objectID==2){gl_Position = cameraMatrix * sphere2 * vec4(position, 1.0f);} //sphere2
+	else if(objectID==3){gl_Position = cameraMatrix * sphere3 * vec4(position, 1.0f);} //sphere3
+	else if(objectID==4){gl_Position = cameraMatrix * sphere4 * vec4(position, 1.0f);} //sphere4
+	else if(objectID==5){gl_Position = cameraMatrix * sphere5 * vec4(position, 1.0f);} //sphere5
+	else if(objectID==6){gl_Position = cameraMatrix * sphere6 * vec4(position, 1.0f);} //sphere6
+	else if(objectID==7){gl_Position = cameraMatrix * sphere7 * vec4(position, 1.0f);} //sphere7
+	else if(objectID==8){gl_Position = cameraMatrix * sphere8 * vec4(position, 1.0f);} //sphere8
+	else if(objectID==9){gl_Position = cameraMatrix * sphere9 * vec4(position, 1.0f);} //sphere9
+	else {gl_Position = cameraMatrix *vec4(position, 1.0f);}
+
+	TexCoords = texCoords;
+}

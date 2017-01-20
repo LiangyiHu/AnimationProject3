@@ -1,0 +1,20 @@
+#version 330 core
+layout (location = 0) in vec3 position;
+layout (location = 1) in vec2 texCoord;
+layout (location = 2) in vec3 positionLine;
+
+out vec2 TexCoord;
+
+uniform mat4 cameraMatrix;
+uniform int objectID;
+
+void main()
+{
+	if(objectID==0){
+		gl_Position = cameraMatrix * vec4(position, 1.0f);
+		TexCoord = vec2(texCoord.x, 1.0 - texCoord.y);
+	}
+    else if(objectID==1){
+	gl_Position = cameraMatrix * vec4(positionLine, 1.0f);
+	}
+}
